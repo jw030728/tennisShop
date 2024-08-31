@@ -13,7 +13,9 @@ function start(route, handle){
             return response.end();
         }
 
-        route(pathname, handle, response);//루트한테 보내기
+        let queryData = url.parse(request.url,true).query;//
+
+        route(pathname, handle, response, queryData.productId);//루트한테 보내기
        
         // response.writeHead(200,{'content-type' : 'text/html'}); //클라이언트에게 줄 RESPONSE타입은 HTML이다
         // response.write("hello juwon"); //그안에 들어갈 내용 body는 저 텍스트임
